@@ -27,11 +27,10 @@
 		<nav class="nav nav-principal">
 			<div class="container">
 				<div class="logo"><a href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/nulu-alimentos-funcionais.png" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/frigac-logo.png" alt="">
 				</a></div>
 				
 				<ul class="align-right">
-
 					<?php 
 						$array_menu = wp_get_nav_menu_items('header');
 						$menu = array();

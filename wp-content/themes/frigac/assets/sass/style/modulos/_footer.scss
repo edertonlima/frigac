@@ -1,31 +1,13 @@
 .footer {
-	padding: 70px 0;
-	margin-top: 70px;
+	padding: 50px 0;
+	margin-top: 100px;
+	position: relative;
 
 	@include media(920){
 		padding: 40px 0;
-	}
 
-	.container {
-		background-image: url('../images/bg-footer.png');
-		background-position: top left;
-		background-repeat: no-repeat;
-		background-size: contain;
-		padding-left: 230px;
-		padding-right: 100px;
-
-		@include media(920){
-			background-image: none;
-			padding: 0 40px;
-
-			.row {
-				flex-direction: column-reverse;
-
-				[class*="col-"] {
-					flex: 0 0 100%;
-					max-width: 100%;
-				}
-			}
+		.row {
+			flex-direction: column-reverse;
 		}
 	}
 
@@ -34,39 +16,81 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-
-		@include media(920){
-			.estrela-nav {
-				display: none;
-			}
-
-			.nav-footer {
-				display: none;
-			}
-		}
 	}
 
 	h3 {
-		&.destaque {
-			color: $cor3;
-		}
-	}
-
-	.localizacao-mobile {
-		display: none;
-		font-size: 18px;
-		line-height: 25px;
+		color: $cor1;
+		font-size: 1.125rem;
 		text-align: center;
-		color: #FFFFFF;
-		margin: 25px 0 60px;
+		display: block;
 
 		img {
+			height: 42px;
+			width: auto;
 			display: block;
-			margin: 0 auto 5px;
+			margin: 0 auto 10px;
 		}
 
 		@include media(920){
+			display: none;
+		}
+	}
+
+	.logo-selo-footer {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 120px;
+		transform: translate(-50%, -50%);
+	}
+
+	p {
+		font-size: 1rem;
+		line-height: 1.25rem;
+		color: #ffffff;
+		font-weight: $light;
+		margin: 0;
+
+		a {
+			font-size: 1rem;
+			line-height: 1.25rem;
+			color: #ffffff;
+			text-decoration: none;
+			font-weight: $light;
+
+			&:hover {
+				color: $cor1;
+			}
+		}
+
+		@include media(920){
+			display: none;
+		}
+	}
+
+	.social-footer {
+		margin: 30px 0 0;
+
+		@include media(920){
+			margin-top: 70px;
+		}
+
+		ul {
 			display: block;
+			text-align: center;
+			margin-top: 15px;
+
+			li {
+				display: inline-block;
+				margin: 0 20px;
+
+				img {
+					height: 42px;
+					@include media(920){
+						height: 35px;
+					}
+				}
+			}
 		}
 	}
 }

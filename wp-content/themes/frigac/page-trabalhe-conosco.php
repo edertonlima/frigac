@@ -5,38 +5,8 @@
 		while ( have_posts() ) : the_post(); ?>
 
 			<section class="box-section box-section-no-padding">
-
 				<div class="slide-page">
-					<div class="item imagem slide-item-height-full" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img-banner-contato.jpg');">
-						<!--<div class="container">
-							<h2 class="destaque">sabor e textura de<br>manteiga de verdade</h2>
-						</div>-->
-					</div>
-				</div>
-
-			</section>
-
-			<section class="box-section no-padding-bottom">
-				<div class="container">
-					<div class="row">
-						
-						<div class="col-12">
-							<ul class="ico-single">
-								<li class="ico-link">
-									<a href="<?php echo get_home_url(); ?>/parcerias">
-										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-parcerias.svg" alt="">
-										<span>parcerias</span>
-									</a>
-								</li>
-								<li class="ico-link">
-									<a href="<?php echo get_home_url(); ?>/contato">
-										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-fale-conosco.svg" alt="">
-										<span>fale<br>conosco</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-
+					<div class="item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/image-banner-5.jpg');">
 					</div>
 				</div>
 			</section>
@@ -44,32 +14,40 @@
 			<section class="box-section">
 				<div class="container">
 					<div class="row">
-						
 						<div class="col-12 align-center">
-							<h1 class="destaque cor-cor1"><?php the_title(); ?></h1>
-							<p>Para trabalhar conosco <strong>entre em contato</strong> preenchendo este formulário, ou mande e-mail se apresentando e seu currículo para <a href="mailto:contato@nulufoods.com.br">contato@nulufoods.com.br</a></p>
+							<h2>Trabalhe Conosco</h2>
+							<p class="content-reduzido">Quer fazer parte da nossa equipe? Lorem ipsum dolor sit amet.</p>
 
+							<div class="ico-contato">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-mobile-verde.svg" alt="">
+								<p>+55 (48) 3272.1171</p>
+							</div>
+						</div>
+						
+						<div class="col-12">
 							<form action="">
 								<fieldset class="input">
-									<input type="text" name="nome" placeholder="Nome">
+									<label for="nome">*Nome</label>
+									<input type="text" id="nome" name="nome" placeholder="|">
 								</fieldset>
 								<fieldset class="input">
-									<input type="email" name="email" placeholder="E-mail">
+									<label for="telefone">*Telefone</label>
+									<input type="tel" id="telefone" name="telefone" placeholder="|">
 								</fieldset>
 								<fieldset class="input">
-									<input type="tel" name="telefone" placeholder="Telefone">
+									<label for="email">*E-mail</label>
+									<input type="email" id="email" name="email" placeholder="|">
 								</fieldset>
 								<fieldset class="input">
-									<input type="text" name="assunto" placeholder="Assunto">
-								</fieldset>
-								<fieldset class="input">
-									<input type="text" name="cargo" placeholder="Cargo">
+									<label for="cargo">*Cargo</label>
+									<input type="text" id="cargo" name="cargo" placeholder="|">
 								</fieldset>
 								<fieldset class="textarea">
-									<textarea name="mensagem" placeholder="Apresente-se"></textarea>
+									<label for="mensagem">*Apresente-se</label>
+									<textarea id="mensagem" name="mensagem" placeholder="|"></textarea>
 								</fieldset>
 								<fieldset class="button">
-									<button type="submit" class="btn enviar">Enviar</button>
+									<button type="submit" class="btn btn-enviar">Enviar</button>
 								</fieldset>
 							</form>
 						</div>

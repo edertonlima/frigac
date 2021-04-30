@@ -4,17 +4,21 @@
 	justify-content: center;
 	cursor: pointer;
 	text-decoration: none;
-	color: #ffffff;
+	color: $cor-txt;
 	background-color: transparent;
 	padding: 0px;
-	height: 58px;
+	height: 52px;
 	line-height: normal;
-	font-size: 1.125rem;
+	font-size: 1.5rem;
+	border: 4px solid $cor2;
+	font-weight: $bold;
 	@include box-sizing;
 	@include animacao;
 
 	&:hover {
 		text-decoration: none;
+		background-color: $cor2;
+		color: #ffffff;
 	}
 
 	&:disabled {
@@ -28,8 +32,15 @@
 		width: 100%; 
 	}
 
-	&.enviar {
-		width: 106px;
-		background-image: url('../images/detalhe-btn-enviar.svg');
+	&.btn-page {
+		max-width: 390px;
+		width: 100%; 
+		margin: 30px auto 0;
+	}
+
+	&.btn-enviar {
+		width: 200px;
+		font-size: 1.25rem;
+		font-weight: $regular;
 	}
 }

@@ -1,13 +1,12 @@
 
 	<footer class="footer bg-cor3">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/selo-footer.png" alt="" class="logo-selo-footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-3">
+				<div class="col-1"></div>
+				<div class="col-5">
 
 					<div class="box-nav-footer">
-
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/img-footer-1.png" alt="" class="estrela-nav">
-
 						<nav class="nav nav-footer">							
 							<ul class="align-right">
 
@@ -29,24 +28,36 @@
 
 							</ul>
 						</nav>
-
-						<a href="#">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/eu-reciclo.png" alt="">
-						</a>
-
 					</div>
 
 				</div>
-				<div class="col-2"></div>
-				<div class="col-7 align-center">
+				<div class="col-5 align-center">
 
-					<h3 class="destaque cor-branco">onde encontrar</h3>
+					<h3>
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-mobile.png" alt="">
+						Contato
+					</h3>
 
-					<a href="" class="localizacao-mobile">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-mapa.svg" alt="">
+					<p>+55 (48) 3272.1171</p>
+					<p><a href="mailto:frigac@gmail.com" title="frigac@gmail.com">frigac@gmail.com</a></p>
 
-						Abrir no Google Maps
-					</a>
+					<div class="social-footer">
+						<p>Siga-nos nas redes sociais e acompanhe novidades, receitas, dicas e muito mais!</p>
+
+						<ul>
+							<li>
+								<a href="">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-facebook.png" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-instagram.png" alt="">
+								</a>
+							</li>
+						</ul>
+					</div>
 
 				</div>
 			</div>

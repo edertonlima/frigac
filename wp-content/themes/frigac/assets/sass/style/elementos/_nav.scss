@@ -29,51 +29,69 @@
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: row;
-		align-items: end;
+		align-items: flex-end;
 	}
 
 	ul {
 		margin-bottom: 15px;
+
+		@include media(920){
+			display: none;
+		}
 		
 		li {
-			padding: 0 15px;
+			padding: 0 5px;
+			position: relative;
+
 			a {				
-				display: flex;
+				display: block;
+				font-size: 1.125rem;
+				font-family: $font-destaque;
+				color: $cor-txt;
+				font-weight: $regular;
+				border-bottom: 2px solid #ffffff;
+				padding: 0 5px 5px;
+				@include animacao;
+			}
 
-				span {
-					height: 30px;
-					line-height: 30px;
-					color: #ffffff;
-					font-family: $font-destaque;
-					font-weight: $bold;
-					text-transform: uppercase;
-					background-image: url('../images/detalhe-menu.png');
+			&.active {
+				a {
+					span {
+						font-weight: $bold;
+						border-color: $cor1;
+					}
 				}
+			}
 
-				&:before, &:after {
-					content: '';
-					width: 15px;
-					height: 30px;
+			&:hover {
+				a {
+					border-color: $cor1;
 				}
-
-				&:before {
-					background-image: url('../images/detalhe-menu-left.png');
+				ul.submenu {
+					display: flex;
 				}
+			}
+		}
 
-				&:after {
-					background-image: url('../images/detalhe-menu-right.png');
+		ul.submenu {
+			position: absolute;
+			left: 0;
+			width: 200px;
+			flex-direction: column;
+			align-items: flex-start;
+			background-color: $cor1;
+			padding: 20px;
+			z-index: 999999;
+			display: none;
+			@include box-sizing;
+
+			li {
+				a {
+					border: none;
+					font-size: .875rem;
 				}
 
 				&:hover {
-					a {
-						color: $cor1;
-						background-color: #ffffff;
-					}
-				}
-
-				&.ativo {
-					background-color: $cor1;
-
 					a {
 						color: #ffffff;
 					}
@@ -81,17 +99,12 @@
 			}
 		}
 	}
-
-	@include media(920){
-		ul {
-			display: none;
-		}
-	}
 }	
 
 
 .nav-footer {
 	margin: 20px 0 55px;
+
 	ul {
 		display: flex;
 		flex-direction: column;
@@ -101,13 +114,14 @@
 		width: 100%;
 
 		li {
-			padding: 0;
+			padding: 0px;
 
 			a {
-				text-transform: uppercase;
-				color: #FFFFFF;
-				padding: 5px;
-				//font-weight: $semi-bold;
+				font-size: 1.125rem;
+				line-height: 2rem;
+				font-family: $font-destaque;
+				color: $cor1;
+				font-weight: $bold;
 
 				&:hover {
 
@@ -117,7 +131,7 @@
 	}
 
 	@include media(920){
-		
+		margin: 20px 0 0;
 	}
 }	
 
@@ -223,36 +237,23 @@
 	}
 }
 
-
-
-.header {
-	&.scroll {
-		.nav {
-			a {
-				
-			}
-		}
-	}
-}
-
-
 .nav-mobile {
 	position: fixed;
-	top: -100vh;
-	left: 0;
+	top: 0;
+	right: 100%;
 	width: 100%;
 	height: 100%;
-	background-color: $cor1;
+	background-color: $cor3;
 	padding: 40px;
-	display: flex;
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	@include box-sizing;
 	@include animacao;
 
-	&.active {
-		top: 0;
+	@include media(920){
+		display: flex;
 	}
 
 	.logo {
@@ -267,29 +268,52 @@
 		li {
 			padding: 2px 0;
 			
-			a {
-				font-size: 18px;
-				line-height: 24px;
+			a, span {
+				font-size: 32px;
+				line-height: 45px;
+				font-weight: $bold;
 				text-align: center;
-				color: #FFFFFF;
+				color: $cor1;
 			}
 		}
 
 		ul {
 			padding: 10px 0;
+			display: none;
+
 			li {
 				a {
-					font-weight: $bold;
+					font-weight: 400;
+					color: #ffffff;
+					font-size: 25px;
+					line-height: 32px;
 				}
 			}
 		}
 	}
 
-	#btn-close-menu {
-		position :absolute;
-		top: 100px;
+	.nav-icon2 {
+		position: absolute;
+		top: 40px;
 		right: 40px;
-		cursor: pointer;
+	}
+
+	&.active {
+		right: 0;
+	}
+
+	.social-footer {
+		margin-top: 50px;
+
+		ul {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			li {
+				 margin: 0 20px;
+			}
+		}
 	}
 }
 
@@ -301,7 +325,7 @@
 	cursor: pointer;
 	position: absolute;
 	right: 25px;
-	top: 60px;
+	bottom: 15px;
 
 	@include media(1250){
 		//display: block;
@@ -309,10 +333,6 @@
 
 	@include media(920){
 		//margin-left: auto;
-		display: block;
-	}
-
-	&.open {
 		display: block;
 	}
 }
@@ -324,7 +344,7 @@
 }
 
 
-#nav-icon2 {
+.nav-icon2 {
   width: 35px;
   height: 25px;
   //position: relative;
@@ -339,7 +359,7 @@
   cursor: pointer;
 }
 
-#nav-icon2 {
+.nav-icon2 {
 	span {
 		display: block;
 		position: absolute;
@@ -357,86 +377,75 @@
 		transition: .25s ease-in-out;
 	}
 
-	&.active-open {
-		position: absolute;
-		top: 40px;
-		right: 40px;
-		z-index: 999;
-
+	&.open {
 		span {
-			background: #ffffff;
-		}
-
-		&.open {
-			span {
-				background: #ffffff;
-			}
+			background: $cor1;
 		}
 	}
 }
 
-#nav-icon2 span:nth-child(even) {
+.nav-icon2 span:nth-child(even) {
   left: 50%;
   border-radius: 0 9px 9px 0;
 }
 
-#nav-icon2 span:nth-child(odd) {
+.nav-icon2 span:nth-child(odd) {
   left:0px;
   border-radius: 9px 0 0 9px;
 }
 
-#nav-icon2 span:nth-child(1), #nav-icon2 span:nth-child(2) {
+.nav-icon2 span:nth-child(1), .nav-icon2 span:nth-child(2) {
   top: -1px;
 }
 
-#nav-icon2 span:nth-child(3), #nav-icon2 span:nth-child(4) {
+.nav-icon2 span:nth-child(3), .nav-icon2 span:nth-child(4) {
   top: 11.5px;
 }
 
-#nav-icon2 span:nth-child(5), #nav-icon2 span:nth-child(6) {
+.nav-icon2 span:nth-child(5), .nav-icon2 span:nth-child(6) {
   top: 24px;
 }
 
-#nav-icon2.open span:nth-child(1),#nav-icon2.open span:nth-child(6) {
+.nav-icon2.open span:nth-child(1),.nav-icon2.open span:nth-child(6) {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-#nav-icon2.open span:nth-child(2),#nav-icon2.open span:nth-child(5) {
+.nav-icon2.open span:nth-child(2),.nav-icon2.open span:nth-child(5) { 
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
-#nav-icon2.open span:nth-child(1) {
+.nav-icon2.open span:nth-child(1) {
   left: 5px;
   top: 6px;
 }
 
-#nav-icon2.open span:nth-child(2) {
+.nav-icon2.open span:nth-child(2) {
   left: calc(50% - 1px);
   top: 6px;
 }
 
-#nav-icon2.open span:nth-child(3) {
+.nav-icon2.open span:nth-child(3) {
   left: -50%;
   opacity: 0;
 }
 
-#nav-icon2.open span:nth-child(4) {
+.nav-icon2.open span:nth-child(4) {
   left: 100%;
   opacity: 0;
 }
 
-#nav-icon2.open span:nth-child(5) {
+.nav-icon2.open span:nth-child(5) {
   left: 5px;
   top: 19px;
 }
 
-#nav-icon2.open span:nth-child(6) {
+.nav-icon2.open span:nth-child(6) {
   left: calc(50% - 1px);
   top: 19px; 
 }

@@ -1,32 +1,25 @@
 $height_input: 40px;
 
 form {
-	margin: 0 auto;
+	margin: 30px auto 0;
 	padding: 0px;
 	width: 100%;
-	max-width: 550px;
+	max-width: 390px;
 	@include box-sizing;
 	@include clear();
 
 	fieldset {
-		margin: 0px 0 19px;
+		margin: 0px 0 30px;
 		width: 100%;
 		display: block;
 		position: relative;
 		@include box-sizing;
 
-		&.input, &.textarea {
-			background-repeat: no-repeat;
-		}
-
-		&.input {
-			padding: 10px 25px 12px 45px;
-			background-image: url('../images/bg-input.png');
-		}
-
-		&.textarea {
-			padding: 18px 20px 25px 45px;
-			background-image: url('../images/bg-textarea.png');
+		label {
+			font-size: 1.25rem;
+			color: $cor-txt;
+			font-weight: $light;
+			padding-left: 20px;
 		}
 
 		&.button {

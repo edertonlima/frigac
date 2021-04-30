@@ -98,35 +98,3 @@
 .slick-arrow.slick-hidden {
 	display: none;
 }
-
-
-//slick-dots
-.slick-dots {
-	margin-top:20px;
-	width: 100%;
-	text-align: center;
-	display: block;
-
-	li {
-		padding: 0 5px;
-		line-height: normal;
-		display: inline-block;
-
-		button {
-			width: 20px;
-			height: 20px;
-			border-radius: 50%;
-			border: 1px solid $cor1;
-			text-indent: -1000px;
-			cursor: pointer;
-			overflow: hidden;
-			@include animacao;
-		}
-
-		&.slick-active {
-			button {
-				background-color: $cor1;
-			}
-		}
-	}
-}

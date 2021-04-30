@@ -1,34 +1,25 @@
 
 <?php get_header(); ?>
 
-	<section class="box-section box-section-no-padding">
-
-		<div class="slide-page">
-			<div class="item imagem slide-item-height-full" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img-banner-home.jpg');">
-				<div class="container">
-					<h2 class="destaque">queijo a base de castanha<br>saboroso e vegano</h2>
-				</div>
-			</div>
-		</div>
-
-	</section>
-
 	<section class="box-section">
 		<div class="container">
-			<div class="row row-post list-post">
+			<div class="row">
+				<div class="col-12 align-center">
+					<h2><?php single_cat_title(); ?></h2>
+					<p>Confira as melhores receitas para a melhor carne suína do Brasil!</p>
+				</div>
 
 				<?php if( have_posts() ){
-					while ( have_posts() ) : the_post(); ?>
+					while ( have_posts() ) : the_post();
 
-						<div class="col-4">
-							<?php get_template_part( 'content/list-post' ); ?>
-						</div>
+						get_template_part( 'content/list-post' );
 
-					<?php endwhile;
-				}else{
-					echo '<div class="col-12 align-center"><p>Nenhum conteúdo encontrado.</p></div>';
-				} ?>
-
+					endwhile;
+				}else{ ?>
+					<div class="col-12 align-center">
+						<p class="msg-none-post">Nenhuma receita encontrada.</p>
+					</div>
+				<?php } ?>
 			</div>
 		</div>
 	</section>
@@ -44,17 +35,16 @@
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/plugins/slick/slick.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('.slide-produtos').slick({
-			dots: false,
-			arrows: true,
+		$('#depoimentos').slick({
+			dots: true,
+			arrows: false,
 			infinite: false,
 			speed: 300,
 			slidesToShow: 1,
-			slidesToScroll: 1,
-			variableWidth: true
+			slidesToScroll: 1
 		});
 
-		/*slide = 0;
+		slide = 0;
 		$('#depoimentos .slick-dots li').each(function() {
 			imagem = $('#depoimentos .slick-slide[data-slick-index="'+ slide +'"] img').attr('src');
 			$('button', this).css('background-image','url('+ imagem +')');
@@ -69,6 +59,13 @@
 			speed: 300,
 			slidesToShow: 3,
 			slidesToScroll: 1
-		});*/
+		});
+	});
+</script>
+
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/plugins/scrollbar/scrollbar.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.scrollbar-dynamic').scrollbar();
 	});
 </script>

@@ -5,38 +5,8 @@
 		while ( have_posts() ) : the_post(); ?>
 
 			<section class="box-section box-section-no-padding">
-
 				<div class="slide-page">
-					<div class="item imagem slide-item-height-full" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img-banner-contato.jpg');">
-						<!--<div class="container">
-							<h2 class="destaque">sabor e textura de<br>manteiga de verdade</h2>
-						</div>-->
-					</div>
-				</div>
-
-			</section>
-
-			<section class="box-section no-padding-bottom">
-				<div class="container">
-					<div class="row">
-						
-						<div class="col-12">
-							<ul class="ico-single">
-								<li class="ico-link">
-									<a href="<?php echo get_home_url(); ?>/contato">
-										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-fale-conosco.svg" alt="">
-										<span>fale<br>conosco</span>
-									</a>
-								</li>
-								<li class="ico-link">
-									<a href="<?php echo get_home_url(); ?>/trabalhe-conosco">
-										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-trabalhe-conosco.svg" alt="">
-										<span>trabalhe<br>conosco</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-
+					<div class="item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/image-banner-4.jpg');">
 					</div>
 				</div>
 			</section>
@@ -44,35 +14,52 @@
 			<section class="box-section">
 				<div class="container">
 					<div class="row">
-						
 						<div class="col-12 align-center">
-							<h1 class="destaque cor-cor1"><?php the_title(); ?></h1>
-							<p>Em caso de dúvidas ou por busca de mais informações <strong>entre em contato</strong> preenchendo este formulário, ou mande e-mail para <a href="mailto:marketing@nulufoods.com.br">marketing@nulufoods.com.br</a></p>
+							<h2>Seja um Revendedor</h2>
+							<p class="content-reduzido">Cresça conosco vendendor as melhores carnes do sul do Brasil. Preencha o formulário abaixo ou nos ligue para mais informações:</p>
 
+							<div class="ico-contato">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-mobile-verde.svg" alt="">
+								<p>+55 (48) 3272.1171</p>
+							</div>
+						</div>
+						
+						<div class="col-12">
 							<form action="">
 								<fieldset class="input">
-									<input type="text" name="nome" placeholder="Nome">
+									<label for="nome">*Nome</label>
+									<input type="text" id="nome" name="nome" placeholder="|">
 								</fieldset>
 								<fieldset class="input">
-									<input type="email" name="email" placeholder="E-mail">
+									<label for="empresa">*Empresa</label>
+									<input type="text" id="empresa" name="empresa" placeholder="|">
 								</fieldset>
 								<fieldset class="input">
-									<input type="tel" name="telefone" placeholder="Telefone">
+									<label for="telefone">*Telefone</label>
+									<input type="tel" id="telefone" name="telefone" placeholder="|">
 								</fieldset>
 								<fieldset class="input">
-									<input type="text" name="empresa" placeholder="Empresa">
+									<label for="email">*E-mail</label>
+									<input type="email" id="email" name="email" placeholder="|">
 								</fieldset>
 								<fieldset class="input">
-									<input type="text" name="cidade-estado" placeholder="Cidade/Estado">
+									<label for="cidade-estado">*Cidade/Estado</label>
+									<input type="text" id="cidade-estado" name="cidade-estado" placeholder="|">
 								</fieldset>
 								<fieldset class="input">
-									<input type="text" name="assunto" placeholder="Assunto">
+									<label for="pais">*País</label>
+									<input type="text" id="pais" name="pais" placeholder="|">
+								</fieldset>
+								<fieldset class="input">
+									<label for="assunto">*Assunto</label>
+									<input type="text" id="assunto" name="assunto" placeholder="|">
 								</fieldset>
 								<fieldset class="textarea">
-									<textarea name="mensagem" placeholder="Mensagem"></textarea>
+									<label for="mensagem">*Mensagem</label>
+									<textarea id="mensagem" name="mensagem" placeholder="|"></textarea>
 								</fieldset>
 								<fieldset class="button">
-									<button type="submit" class="btn enviar">Enviar</button>
+									<button type="submit" class="btn btn-enviar">Enviar</button>
 								</fieldset>
 							</form>
 						</div>

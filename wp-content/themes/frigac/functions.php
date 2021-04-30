@@ -87,85 +87,75 @@ if($nome_post['name'] != ''){
 }
 
 
-/*
-// adiciona custom post midias
-add_action( 'init', 'post_type_produtos' );
-function post_type_produtos() {
 
-	$labels = array(
-	    'name' => _x('Produtos', 'post type general name'),
-	    'singular_name' => _x('Produtos', 'post type singular name'),
-	    'add_new' => _x('Adicionar novo', 'produto'),
-	    'add_new_item' => __('Adicionar novo'),
-	    'edit_item' => __('Editar'),
-	    'new_item' => __('Novo post'),
-	    'all_items' => __('Todos as post'),
-	    'view_item' => __('Visualizar post'),
-	    'search_items' => __('Procurar post'),
-	    'not_found' =>  __('Nenhum post encontrado.'),
-	    'not_found_in_trash' => __('Nenhum post encontrado na lixeira.'),
-	    'parent_item_colon' => '',
-	    'menu_name' => 'Produtos'
-	);
-	$args = array(
-	    'labels' => $labels,
-	    'public' => true,
-	    'publicly_queryable' => true,
-	    'show_ui' => true,
-	    'show_in_menu' => true,
+	// PRODUTOS
+	add_action( 'init', 'create_post_type_produto' );
+	function create_post_type_produto() {
 
-		'rewrite'=> [
-			'slug' => 'produtos',
-			"with_front" => true,
-		],
+		$labels = array(
+		    'name' => _x('Produtos', 'post type general name'),
+		    'singular_name' => _x('Produto', 'post type singular name'),
+		    'add_new' => _x('Adicionar Nova', 'Produto'),
+		    'add_new_item' => __('Add New Produto'),
+		    'edit_item' => __('Edit Produto'),
+		    'new_item' => __('New Produto'),
+		    'all_items' => __('Todas as Produto'),
+		    'view_item' => __('View Produto'),
+		    'search_items' => __('Search Produto'),
+		    'not_found' =>  __('No Produto found'),
+		    'not_found_in_trash' => __('No Produto found in Trash'),
+		    'parent_item_colon' => '',
+		    'menu_name' => 'Produtos'
+		);
+		$args = array(
+		    'labels' => $labels,
+		    'public' => true,
+		    'publicly_queryable' => true,
+		    'show_ui' => true,
+		    'show_in_menu' => true,
+		    'rewrite' => true,
+		    'capability_type' => 'post',
+		    'has_archive' => true,
+		    'hierarchical' => false,
+		    'menu_position' => null,
+		    'menu_icon' => 'dashicons-tag',
+		    'supports' => array('title','thumbnail','excerpt','editor')
+		  );
 
-		"cptp_permalink_structure" => "/%postname%/",
+	    register_post_type( 'produto', $args );
+	}
 
-	    'capability_type' => 'post',
-	    'has_archive' => true,
-	    'hierarchical' => true,
-	    'menu_position' => null,
-	    'menu_icon' => 'dashicons-format-gallery',
-	    'menu_position' => 2,
-	    'supports' => array('title','excerpt','thumbnail')
-	  );
+	add_action( 'init', 'create_taxonomy_categoria_produto' );
+	function create_taxonomy_categoria_produto() {
 
-    register_post_type( 'produtos', $args );
-}
+		$labels = array(
+		    'name' => _x( 'Categorias de Produto', 'taxonomy general name' ),
+		    'singular_name' => _x( 'Categorias', 'taxonomy singular name' ),
+		    'search_items' =>  __( 'Search Categorias' ),
+		    'all_items' => __( 'All Categories' ),
+		    'parent_item' => __( 'Parent Categorias' ),
+		    'parent_item_colon' => __( 'Parent Categorias:' ),
+		    'edit_item' => __( 'Edit Categorias' ),
+		    'update_item' => __( 'Update Categorias' ),
+		    'add_new_item' => __( 'Add New Categorias' ),
+		    'new_item_name' => __( 'New Categorias Name' ),
+		    'menu_name' => __( 'Categorias' ),
+		);
 
-/*
-add_action( 'init', 'category_midias' );
-function category_midias() {
-
-	$labels = array(
-	    'name' => _x( 'Categoria', 'taxonomy general name' ),
-	    'singular_name' => _x( 'Categoria', 'taxonomy singular name' ),
-	    'search_items' =>  __( 'Procurar categoria' ),
-	    'all_items' => __( 'Todas as categorias' ),
-	    'parent_item' => __( 'Categoria pai' ),
-	    'parent_item_colon' => __( 'Categoria pai:' ),
-	    'edit_item' => __( 'Editar categoria' ),
-	    'update_item' => __( 'Atualizar categoria' ),
-	    'add_new_item' => __( 'Adicionar nova categoria' ),
-	    'new_item_name' => __( 'Nova categoria' ),
-	    'menu_name' => __( 'Categoria' ),
-	);
-
-    register_taxonomy( 'category_midias', array( 'midias' ), array(
-        'hierarchical' => true,
-        'labels' => $labels,
-        'show_ui' => true,
-        'show_admin_column' => true,
-        'show_in_tag_cloud' => true,
-        'query_var' => true,
-		'rewrite' => array(
-		    'slug' => 'midias',
-		    'with_front' => true,
-			)
-        )
-    );
-}
-*/
+	    register_taxonomy( 'categoria_produto', array( 'produto' ), array(
+	        'hierarchical' => true,
+	        'labels' => $labels,
+	        'show_ui' => true,
+	        'show_in_tag_cloud' => true,
+	        'query_var' => true,
+			'has_archive' => 'produto',
+			'rewrite' => array(
+			    'slug' => 'produto',
+			    'with_front' => false,
+				),
+	        )
+	    );
+	}
 
 
 
